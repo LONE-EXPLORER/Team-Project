@@ -3,7 +3,9 @@ import { Box, Typography, TextField, Button, Divider, makeStyles, Link, Stack, A
 import Login_Background from "../../assets/images/radiant-gradient.png";
 import Gmail from "../../assets/images/gmail.png";
 import Insta from "../../assets/images/instagram.png";
-import Facebook from "../../assets/images/icons8-facebook-48.png";
+import Facebook from "../../assets/images/facebook.png";
+import Background from "../../assets/images/liquid-cheese.png";
+import { stringAvatar } from "../../utils";
 
 const Login = () => {
   const [formData, setFormData] = useState<any>({
@@ -24,16 +26,13 @@ const Login = () => {
     console.log("Form submitted with data:", formData);
   };
 
- 
-const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
-
   return (
     <Box
       sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        background: `url(${Login_Background})`,
+        background: `url(${Background})`,
         backgroundSize: "cover",
         height: "100vh",
       }}
@@ -51,11 +50,14 @@ const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
           width: "25vw",
         }}
       >
+        <Avatar
+          {...stringAvatar(formData.email.toUpperCase())}
+          sx={{ width: 56, height: 56, mb: 1 }}
+        />
         <Typography
           variant="h4"
           gutterBottom
-          sx={{ fontSize: "36px", fontWeight: "600", marginBottom: "60px", marginTop:"40px" }}
-
+          sx={{ fontSize: "36px", fontWeight: "600" }}
         >
           Login
         </Typography>
@@ -67,7 +69,6 @@ const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
           onChange={handleChange}
           margin="normal"
           required
-          sx={{ marginBottom: '30px' }}
         />
         <TextField
           label="Password"
@@ -97,9 +98,9 @@ const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
         </Typography>
 
         <Stack direction="row" spacing={2} >
-            <Avatar alt="Facebook" src={Facebook} sx={{ margin: '10px' }}/>
-            <Avatar alt="Instagram" src={Insta} sx={{ margin: '10px' }} />
-            <Avatar alt="Gmail" src={Gmail} sx={{ margin: '10px' }}/>
+            <Avatar alt="Facebook" src={Facebook} sx={{ margin: '10px' }} style= {{borderRadius: '15%' }}/>
+            <Avatar alt="Instagram" src={Insta} sx={{ margin: '10px' }} style= {{borderRadius: '15%' }} />
+            <Avatar alt="Gmail" src={Gmail} sx={{ margin: '10px' }} style={{borderRadius: '15%' }}/>
         </Stack>
       </Box>
     </Box>

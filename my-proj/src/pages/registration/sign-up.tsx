@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Typography, TextField, Button, Divider } from "@mui/material";
+import { Box, Typography, TextField, Button } from "@mui/material";
 import Background from "../../assets/images/liquid-cheese.png";
 
 const SignUp = () => {
